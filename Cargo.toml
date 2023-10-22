@@ -1,5 +1,5 @@
 [package]
-name = "starship-time"
+name = "prop-time"
 version = "0.1.0"
 edition = "2021"
 
