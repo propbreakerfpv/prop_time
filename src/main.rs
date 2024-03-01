@@ -40,7 +40,7 @@ fn main() {
             let date: DateTime<Tz> = Utc::now().with_timezone(&Eastern);
             let day = date.day();
             match day {
-                4 => format!("\u{1b}[38;2;186;97;216mMay the Forth Be With You\u{1b}[39m"),
+                4 => "\u{1b}[38;2;186;97;216mMay the Forth Be With You\u{1b}[39m".to_string(),
                 _ => format!("\u{1b}[38;2;186;97;216m{}\u{1b}[39m", a.format("%a%b%d")),
             }
         }
