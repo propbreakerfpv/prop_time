@@ -51,7 +51,7 @@ fn main() {
                 format!("\u{1b}[38;2;9;86;28m{}\u{1b}[39m", a.format("%a%b%d"))
             }
         }
-        m => format!("it is month {}!!!", m),
+        m => format!("it is month {}!?!?!?", m),
     };
     println!("{} {}", month_colored, a.format("%H:%M"));
 }
