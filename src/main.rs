@@ -25,9 +25,25 @@ fn main() {
     let month_colored = match a.month() {
         1 => format!("\u{1b}[38;2;148;196;247m{}\u{1b}[39m", a.format("%a%b%d")),
         2 => format!("\u{1b}[38;2;4;81;247m{}\u{1b}[39m", a.format("%a%b%d")),
-        3 => format!("\u{1b}[38;2;0;154;118m{}\u{1b}[39m", a.format("%a%b%d")), // 009A76
+        3 => {
+            let date: DateTime<Tz> = Utc::now().with_timezone(&Eastern);
+            let day = date.day();
+            match day {
+                14 => {
+                    format!("\u{1b}[38;2;0;154;118mPi Day{}\u{1b}[39m", a.format("%a%b%d"))
+                }
+                _ => format!("\u{1b}[38;2;0;154;118m{}\u{1b}[39m", a.format("%a%b%d")), // 009A76
+            }
+        }
         4 => format!("\u{1b}[38;2;233;242;150m{}\u{1b}[39m", a.format("%a%b%d")),
-        5 => format!("\u{1b}[38;2;186;97;216m{}\u{1b}[39m", a.format("%a%b%d")),
+        5 => {
+            let date: DateTime<Tz> = Utc::now().with_timezone(&Eastern);
+            let day = date.day();
+            match day {
+                4 => format!("\u{1b}[38;2;186;97;216mMay the Forth Be With You\u{1b}[39m"),
+                _ => format!("\u{1b}[38;2;186;97;216m{}\u{1b}[39m", a.format("%a%b%d")),
+            }
+        }
         6 => format!("\u{1b}[38;2;153;245;98m{}\u{1b}[39m", a.format("%a%b%d")),
         7 => format!("\u{1b}[38;2;242;217;26m{}\u{1b}[39m", a.format("%a%b%d")),
         8 => format!("\u{1b}[38;2;242;120;26m{}\u{1b}[39m", a.format("%a%b%d")),
